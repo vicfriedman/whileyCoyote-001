@@ -12,6 +12,23 @@
 @end
 @implementation FISAppDelegate
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    NSInteger i = 0;
+    
+    do
+    {
+        
+        if (i % 10 == 1 && i > 10)
+        {
+            NSLog(@"YOU'RE CUCKOO");
+        }
+        
+        NSLog(@"Meep Meep!");
+        i++;
+        
+
+    } while (i <= 50);
+    
     // Override point for customization after application launch.
     return YES;
 }
