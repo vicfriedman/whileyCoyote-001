@@ -13,6 +13,7 @@
 @implementation FISAppDelegate
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    NSInteger numberOfStepsWhileyHasTaken = arc4random_uniform(100);
     NSInteger i = 0;
     
     do
@@ -27,8 +28,8 @@
         i++;
         
 
-    } while (i <= 50);
-    
+    } while (i <= numberOfStepsWhileyHasTaken);
+        
     // Override point for customization after application launch.
     return YES;
 }
