@@ -9,7 +9,7 @@
 
 1. Use `arc4random_uniform()` to generate a value within a specified range.
 
-## Premise
+## Introduction
 
 Whiley Coyote is chasing us so, like Road Runner, we need to make sure that we stay one step ahead of him! To help us out, Road Runner is waiting 50 steps away from us with an anvil ready to drop on Whiley Coyote and flatten him into the ground. This means that we need to run 51 steps to ensure we don't get hit by the anvil ourselves. For each step we take, let's imitate Road Runner by printing "Meep! Meep!" to the console.
 
@@ -35,7 +35,7 @@ do {
   * Insert an `NSLog()` that prints `YOU'RE CUCKOO!` into the `if` statement.
   * Hit run. You should see `YOU'RE CUCKOO!` mixed into the `Meep! Meep!`s in your console output.
 6. Immediately after this `if` statement, add a new `if` statement that checks when `steps` equals `50`. Insert an `NSLog()` that prints a string describing the sound of the anvil falling on Whiley Coyote (e.g. `@"SMASH!"`).
-  * Hit run. You console output should end with:
+  * Hit run. Your console output should end with:
 
 ```
 ...
