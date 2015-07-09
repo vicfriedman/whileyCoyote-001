@@ -1,39 +1,55 @@
----
-tags: while_loops, todo
-languages: objc
----
+# `while`y Coyote
 
-# While-yCoyote
+## Objectives
+
+1. Get practice using loops.
+2. Encounter an infinite loop situation.
+
+##### Advanced
+
+1. Use `arc4random_uniform()` to generate a value within a specified range.
+
+## Introduction
+
+Whiley Coyote is chasing us so, like Road Runner, we need to make sure that we stay one step ahead of him! To help us out, Road Runner is waiting 50 steps away from us with an anvil ready to drop on Whiley Coyote and flatten him into the ground. This means that we need to run 51 steps to ensure we don't get hit by the anvil ourselves. For each step we take, let's imitate Road Runner by printing "Meep! Meep!" to the console.
 
 ## Instructions
 
-As long as While-y Coyote is following us, we'd like to make sure we keep one step in front of him. And the thing is, While-y is wiley! And all we know is that the anvil we setup to flatten him into the ground won't hit him until he has run 50 steps. That means, we need to run 51 steps to ensure we don't get hit by the anvil and also stay ahead of While-y. For each step we take, let's output "Meep Meep."
+To track our steps, let's implement a `do-while` loop:
 
-In order to stay ahead of while-y, we'll need a new type of loop called a do-while loop. A do-while loop runs until a certain condition is met, and the key is, it is always run once, because the code inside the brackets comes before the logic (after the word while). The syntax for a while loop looks like this:
-
-
-```
-do
-{
-	
-	//whatever you want to do goes here.
-
-} while (/*some condition has not been met*/)
+```objc
+do {
+    statements
+} while (condition)
 ```
 
-Additionally, While-y will hold up a sign that says "YOU'RE CUCKOO." every 10 steps he takes (because as we all know a road runner is actually a type of long legged cuckoo bird.) Let's add these into our output log.
+1. Open the `*.xcworkspace` file and navigate to the `application:didFinishLaunchingWithOptions:` method in the `FISAppDelegate.m` implementation file.
+2. Write a `do-while` loop that `NSLog()`s "Meep! Meep!". Write `YES` inside the conditional `()`. 
+  * Hit run (`⌘``R`) and watch and your console printouts. You've just created an infinite loop! Hit stop (`⌘``.`).
+3. Declare an `NSUInteger` variable before the `do-while` loop to count the steps. You can name it "steps". Set the loop's conditional to pass if `steps` is less than or equal to `50`.
+  * Hit run and watch your console printouts. It's an infinite loop again! That's because we're not incrementing our counter inside the loop so the conditional will keep passing forever.
+4. Insert `steps++;` into the loop's implementation body beneath the `NSLog()`. This will add one to `steps` each time the loop runs.
+  * Hit run. You should see a total of 51 `Meep! Meep!`s. **Hint:** *Instead of counting the* `Meep! Meep!`*s, think about how you can print the value of the* `steps` *integer along with each* `Meep! Meep!`.
+5. Whiley Coyote gets frustrated easily and pulls out a sign that reads "YOU'RE CUCKOO!" every ten steps or so.
+  * At the beginning of the loop, add an `if` statement that checks whether `steps` is an even factor of `10` and also greater than `0`. **Hint:** *Use the modulus operator* `%` *to calculate the remainder of dividing* `steps` *by ten.*
+  * Insert an `NSLog()` that prints `YOU'RE CUCKOO!` into the `if` statement.
+  * Hit run. You should see `YOU'RE CUCKOO!` mixed into the `Meep! Meep!`s in your console output.
+6. Immediately after this `if` statement, add a new `if` statement that checks when `steps` equals `50`. Insert an `NSLog()` that prints a string describing the sound of the anvil falling on Whiley Coyote (e.g. `@"SMASH!"`).
+  * Hit run. Your console output should end with:
 
-So in summary, your output should be 51 "Meep Meeps." in the debugger log with "YOU'RE CUCKOO" interrupting those "Meep Meep"s every 10 steps While-y takes (which, if you think about it, is actually after the 11th Meep Meep since While-y is always a step behind.)
-
-That means you'll need to:
-
-1) Write a do-while loop to make sure all 51 Meep Meeps get written in the log.
-
-2) Use an if statement to ensure that While-y's "YOU'RE CUCKOO" messages gets written to the log after every 10 MEEP MEEPs (but starting after the 11th Meep Meep!)
-
-
-Note: All of your code belongs in the AppDelegate's `application:didFinishLaunchingWithOptions:` method, before `return YES`.
+```
+...
+Meep! Meep!
+Meep! Meep!
+YOU'RE CUCKOO!
+SMASH!
+Meep! Meep!
+```
 
 ## Advanced
 
-- While-y has really become quite clever and we don't always manage to flatten him the first time that anvil falls. Let's reflect this in our program by making the number of steps he takes a random number before the anvil hits him. He is allowed to take no more than 100 steps, and the road runner must always take one more step than While-y to keep from getting caught (aka an extra Meep Meep). 
+Whiley Coyote is actually pretty clever despite constantly getting outsmarted by Road Runner. Now that he's expecting the anvil to drop on him after 50 steps, Road Runner says that we need to randomize our plan to drop the anvil.
+	
+1. Define a new `NSUInteger anvil` variable before the loop and set it equal to `arc4random_uniform(25) + 26`. This generates a random integer from `26` to `50`. Replace the two occurrences of `50` in the conditionals with the `anvil` variable.
+  * Hit run a few different times. Notice that the Road Runner drops the anvil after a different number of steps each time.
+2. Play around with the range of the `anvil` variable by changing the integers that affect the usage of `arc4random_uniform()`.
