@@ -2,7 +2,7 @@
 
 ## Objectives
 
-1. Get practice using loops.
+1. Practice using loops.
 2. Encounter an infinite loop situation.
 
 ##### Advanced
