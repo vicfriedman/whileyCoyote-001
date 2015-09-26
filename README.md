@@ -23,7 +23,7 @@ do {
 } while (condition)
 ```
 
-1. Open the `*.xcworkspace` file and navigate to the `application:didFinishLaunchingWithOptions:` method in the `FISAppDelegate.m` implementation file.
+1. Open the `whileyCoyote.xcodeproj` file and navigate to the `application:didFinishLaunchingWithOptions:` method in the `FISAppDelegate.m` implementation file.
 2. Write a `do-while` loop that `NSLog()`s "Meep! Meep!". Write `YES` inside the conditional `()`. 
   * Hit run (`⌘``R`) and watch and your console printouts. You've just created an infinite loop! Hit stop (`⌘``.`).
 3. Declare an `NSUInteger` variable called `steps` before the `do-while` loop in order to count the steps. Start `steps` at `0` ("zero") and set the loop's conditional to pass if `steps` is less than or equal to `50`.
