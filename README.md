@@ -54,4 +54,4 @@ Whiley Coyote is actually pretty clever despite constantly getting outsmarted by
   * Hit run a few different times. Notice that the Road Runner drops the anvil after a different number of steps each time.
 2. Play around with the range of the `anvil` variable by changing the integers that affect the usage of `arc4random_uniform()`.
 
-<a href='https://learn.co/lessons/whileyCoyote' data-visibility='hidden'>View this lesson on Learn.co</a>
+<p data-visibility='hidden'>View <a href='https://learn.co/lessons/whileyCoyote' title='whiley Coyote'>whiley Coyote</a> on Learn.co and start learning to code for free.</p>
